@@ -1,0 +1,30 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present all user data.
+ *
+ * This template is used when viewing a registered user's page,
+ * e.g., example.com/user/123. 123 being the user's ID.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.field_example'. Fields attached to a user
+ *   such as 'user_picture' are available as 'content.user_picture'.
+ * - attributes: HTML attributes for the container element.
+ * - user: A Drupal User entity.
+ *
+ * @see template_preprocess_user()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% if hbd_vocher %}
+  <div class="hbd"><h1>Happy Birthday!</h1></div>
+  <div class="coupon-code"><h2>Use coupon {{ hbd_vocher }} for 10$ off for your favorite pizza</h2></div>
+{% endif %}
+<article{{ attributes }}>
+  {% if content %}
+    {{- content -}}
+  {% endif %}
+</article>

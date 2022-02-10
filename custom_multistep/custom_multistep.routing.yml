@@ -1,0 +1,21 @@
+custom_multistep.multistep_one:
+  path: '/user/register/multistep-one'
+  defaults:
+    _form: '\Drupal\custom_multistep\Form\Multistep\MultistepOneForm'
+    _title: 'First form'
+  requirements:
+    _user_is_logged_in: 'FALSE'
+custom_multistep.multistep_two:
+  path: '/user/register/multistep-two'
+  defaults:
+    _form: '\Drupal\custom_multistep\Form\Multistep\MultistepTwoForm'
+    _title: 'Second form'
+  requirements:
+    _user_is_logged_in: 'FALSE'
+custom_multistep.multistep_three:
+  path: '/user/register/multistep-three'
+  defaults:
+    _form: '\Drupal\custom_multistep\Form\Multistep\MultistepThreeForm'
+    _title: 'Third form'
+  requirements:
+    _user_is_logged_in: 'FALSE'

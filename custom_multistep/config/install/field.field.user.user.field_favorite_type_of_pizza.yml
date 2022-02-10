@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_favorite_type_of_pizza
+  module:
+    - options
+    - user
+id: user.user.field_favorite_type_of_pizza
+field_name: field_favorite_type_of_pizza
+entity_type: user
+bundle: user
+label: 'Favorite type of pizza'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

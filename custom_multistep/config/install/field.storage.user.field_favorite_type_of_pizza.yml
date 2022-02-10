@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - user
+id: user.field_favorite_type_of_pizza
+field_name: field_favorite_type_of_pizza
+entity_type: user
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: pepperoni
+      label: pepperoni
+    -
+      value: cheese
+      label: cheese
+    -
+      value: meatlovers
+      label: meatlovers
+    -
+      value: vegetarian
+      label: vegetarian
+    -
+      value: hawaiian
+      label: hawaiian
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

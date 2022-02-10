@@ -1,0 +1,38 @@
+<?php
+
+use Drupal\Core\Access\AccessResult;
+
+/**
+ * @file
+ * Enables multistep form.
+ */
+
+/**
+ * Implements hook_preprocess_HOOK() for user templates.
+ */
+function custom_multistep_preprocess_user(&$variables) {
+  $variables['user'] = $variables['elements']['#user'];
+  $dob = $variables['user']->get('field_date_of_birth')->getValue();
+  if(is_array($dob)) {
+    $user_dob = $dob[0]['value'];
+    list($year, $month, $day) = explode('-', $user_dob);
+    $currentdaymonth = date("dm");
+    if($day . $month == $currentdaymonth) {
+      $variables['hbd_vocher'] = 'HBDY_10';
+    }
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_access().
+ */
+function custom_multistep_user_access(\Drupal\Core\Entity\EntityInterface $entity, $operation, \Drupal\Core\Session\AccountInterface $account) {
+  if($operation == 'view' && $entity->bundle() == 'user') {
+    $current_user = \Drupal::currentUser();
+    $roles = $current_user->getRoles();
+    if(!in_array('administrator', $roles) && $entity->id() != $current_user->id()) {
+      return AccessResult::forbidden();
+    }
+  }
+  return AccessResult::neutral();
+}
